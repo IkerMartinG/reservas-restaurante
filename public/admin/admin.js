@@ -1,4 +1,4 @@
-import { addDays, api, formatDate, todayIn } from "/js/api.js";
+import { addDays, api, formatDate, todayIn } from "../js/api.js";
 
 const $ = (sel) => document.querySelector(sel);
 const TOKEN_KEY = "casa-anaga-token";

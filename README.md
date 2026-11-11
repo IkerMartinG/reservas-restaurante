@@ -18,6 +18,17 @@ y el personal gestiona la sala desde un panel con una línea de tiempo por mesa.
 - Cambiar una reserva de mesa (solo si la nueva está libre durante toda la reserva).
 - Meter reservas que llegan por teléfono.
 
+## Demo online
+
+**[https://ikermarting.github.io/reservas-restaurante/](https://ikermarting.github.io/reservas-restaurante/)** · Panel: [https://ikermarting.github.io/reservas-restaurante/admin/](https://ikermarting.github.io/reservas-restaurante/admin/) (contraseña `demo`)
+
+La demo funciona sin servidor: `npm run build:demo` genera la carpeta `docs/` con la web y el panel,
+y un backend simulado en el navegador (`demo/server.js`) que responde a las mismas rutas que la API
+real con la **misma lógica** de `src/lib/`. Los datos son de ejemplo y se guardan solo en el navegador
+de quien la visita; la franja superior permite restablecerlos.
+
+Después de cambiar algo en `public/` o `src/lib/`, vuelve a ejecutar `npm run build:demo` y sube `docs/`.
+
 ## Decisiones técnicas
 
 ### Cómo se evitan las dobles reservas
@@ -57,6 +68,8 @@ src/
   services/            Reservas (crear, cancelar, mover) y avisos
   routes/              API pública y API del panel
   middleware/          Autenticación y errores
+demo/                  Backend simulado para la demo de GitHub Pages
+docs/                  Demo estática generada (npm run build:demo)
 public/                Web del restaurante, "Mi reserva" y panel /admin
 scripts/seed.js        Datos de ejemplo
 test/                  Tests con node:test

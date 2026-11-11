@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es" data-demo="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Sala · Casa Anaga</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="admin.css">
+  <script type="module" src="admin.js"></script>
+  <script type="module" data-demo-banner src="../js/demo/banner.js" data-where="panel" data-site="../" data-panel="../admin/"></script>
+</head>
+<body class="admin">
+  <main class="login" id="login-view" hidden>
+    <form class="card login__card" id="login">
+      <h1>Panel de sala</h1>
+      <p>Casa Anaga</p>
+      <div class="field">
+        <label for="password">Contraseña</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn--primary" type="submit">Entrar</button>
+      <p class="error" id="login-error" role="alert" hidden></p>
+    </form>
+  </main>
+
+  <div id="app-view" hidden>
+    <header class="bar">
+      <div class="bar__brand">Casa Anaga <span>Sala</span></div>
+      <div class="bar__date">
+        <button class="icon-btn" type="button" id="prev" aria-label="Día anterior">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <label class="visually-hidden" for="date">Día</label>
+        <input type="date" id="date">
+        <button class="icon-btn" type="button" id="next" aria-label="Día siguiente">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="text-btn" type="button" id="today">Hoy</button>
+      </div>
+      <div class="bar__actions">
+        <button class="btn btn--sun" type="button" id="new">Nueva reserva</button>
+        <button class="text-btn text-btn--light" type="button" id="logout">Salir</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="board" aria-labelledby="day-title">
+        <h1 class="board__title" id="day-title"></h1>
+        <dl class="stats" id="stats"></dl>
+        <div id="timelines"></div>
+
+        <h2 class="board__subtitle">Todas las reservas del día</h2>
+        <div class="table-scroll">
+          <table class="list">
+            <thead><tr><th>Hora</th><th>Nombre</th><th>Pax</th><th>Mesa</th><th>Estado</th><th>Notas</th></tr></thead>
+            <tbody id="list"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="detail" id="detail" aria-live="polite" hidden></aside>
+    </div>
+  </div>
+
+  <dialog class="dialog" id="new-dialog" aria-labelledby="new-title">
+    <form method="dialog" id="new-form" novalidate>
+      <h2 id="new-title">Nueva reserva por teléfono</h2>
+      <div class="row-2">
+        <div class="field"><label for="n-date">Día</label><input type="date" id="n-date" name="date" required></div>
+        <div class="field"><label for="n-time">Hora</label><select id="n-time" name="time" required></select></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label for="n-size">Personas</label><input type="number" id="n-size" name="partySize" min="1" value="2" required></div>
+        <div class="field"><label for="n-phone">Teléfono</label><input type="tel" id="n-phone" name="phone" required></div>
+      </div>
+      <div class="field"><label for="n-name">Nombre</label><input id="n-name" name="name" required></div>
+      <div class="field"><label for="n-notes">Notas</label><input id="n-notes" name="notes" maxlength="300"></div>
+      <p class="error" id="new-error" role="alert" hidden></p>
+      <div class="dialog__actions">
+        <button class="text-btn" type="button" id="new-cancel">Cerrar</button>
+        <button class="btn btn--sun" type="submit" value="save">Guardar reserva</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

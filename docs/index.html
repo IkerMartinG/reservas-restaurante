@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es" data-demo="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Casa Anaga · Reserva tu mesa</title>
+  <meta name="description" content="Cocina canaria de monte en San Andrés. Reserva tu mesa online.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script type="module" src="js/booking.js"></script>
+  <script type="module" data-demo-banner src="./js/demo/banner.js" data-where="site" data-site="./" data-panel="./admin/"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top__row">
+      <a class="top__brand" href="./">Casa Anaga</a>
+      <nav class="top__links" aria-label="Secciones">
+        <a href="#carta">Carta</a>
+        <a href="mi-reserva.html">Mi reserva</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div>
+          <h1 class="hero__name">Casa Anaga</h1>
+          <p class="hero__lead">Cocina canaria de monte en San Andrés. Potaje de berros, carne de cabra, pescado del día y vino de la isla.</p>
+          <dl class="facts">
+            <div><dt>Horario</dt><dd>Martes a domingo<br>13:00 a 16:30 y 20:00 a 23:30</dd></div>
+            <div><dt>Dónde</dt><dd>Calle del Dique 12<br>San Andrés, Santa Cruz de Tenerife</dd></div>
+          </dl>
+        </div>
+
+        <div class="booker" id="reservar">
+          <div data-view="form">
+            <h2 class="booker__title">Reserva tu mesa</h2>
+            <form id="booking" novalidate>
+              <fieldset class="step">
+                <legend class="step__label"><span class="step__n">1</span>¿Cuántos sois?</legend>
+                <div class="chips" id="sizes" role="group" aria-label="Número de personas"></div>
+              </fieldset>
+
+              <fieldset class="step">
+                <legend class="step__label"><span class="step__n">2</span>¿Qué día?</legend>
+                <div class="chips chips--scroll" id="days" role="group" aria-label="Día"></div>
+              </fieldset>
+
+              <fieldset class="step" id="step-time">
+                <legend class="step__label"><span class="step__n">3</span>¿A qué hora?</legend>
+                <div class="services" id="slots" aria-live="polite"></div>
+              </fieldset>
+
+              <fieldset class="step" id="step-details" disabled>
+                <legend class="step__label"><span class="step__n">4</span>Tus datos</legend>
+                <p class="summary" id="summary" aria-live="polite">Elige una hora para continuar.</p>
+                <div class="field">
+                  <label for="name">Nombre</label>
+                  <input id="name" name="name" autocomplete="name" required maxlength="80">
+                </div>
+                <div class="row-2">
+                  <div class="field">
+                    <label for="phone">Teléfono</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                  </div>
+                  <div class="field">
+                    <label for="email">Email (opcional)</label>
+                    <input id="email" name="email" type="email" autocomplete="email">
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="notes">¿Algo que debamos saber? (opcional)</label>
+                  <textarea id="notes" name="notes" maxlength="300" placeholder="Alergias, carrito de bebé, una celebración…"></textarea>
+                </div>
+                <button class="btn btn--primary" type="submit" id="submit">Confirmar reserva</button>
+                <p class="error" id="error" role="alert" hidden></p>
+              </fieldset>
+            </form>
+          </div>
+
+          <div class="done" data-view="done" hidden>
+            <h2 class="booker__title">Reserva confirmada</h2>
+            <p id="done-text"></p>
+            <p class="done__code"><span>Tu código de reserva</span><strong id="done-code"></strong></p>
+            <p>Con el código y tu teléfono puedes consultarla o cancelarla en <a href="mi-reserva.html">Mi reserva</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="carta">
+      <div class="wrap">
+        <h2>Algunos platos de la carta</h2>
+        <p>Producto de la zona y recetas de casa. La carta cambia con la temporada.</p>
+        <ul class="dishes">
+          <li><span>Potaje de berros con gofio</span><span>9 €</span></li>
+          <li><span>Papas arrugadas con mojo</span><span>6 €</span></li>
+          <li><span>Carne de cabra en salsa</span><span>15 €</span></li>
+          <li><span>Vieja sancochada</span><span>18 €</span></li>
+          <li><span>Queso asado con mojo verde</span><span>8 €</span></li>
+          <li><span>Bienmesabe con helado</span><span>6 €</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="demo-note">
+    <div class="wrap">Proyecto de demostración: Casa Anaga es un restaurante ficticio. Las reservas no son reales.</div>
+  </footer>
+</body>
+</html>
