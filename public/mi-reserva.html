@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi reserva · Casa Anaga</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap">
+  <link rel="stylesheet" href="/css/site.css">
+  <script type="module" src="/js/my-booking.js"></script>
+</head>
+<body class="page">
+  <header class="top">
+    <div class="wrap top__row">
+      <a class="top__brand" href="/">Casa Anaga</a>
+      <nav class="top__links" aria-label="Secciones"><a href="/#reservar">Reservar</a></nav>
+    </div>
+  </header>
+  <main class="narrow">
+    <div class="card" id="lookup-card">
+      <h1>Mi reserva</h1>
+      <p>Escribe el código que te dimos al reservar y el teléfono que usaste.</p>
+      <form id="lookup" novalidate>
+        <div class="field">
+          <label for="code">Código de reserva</label>
+          <input id="code" name="code" autocomplete="off" autocapitalize="characters" maxlength="6" required>
+        </div>
+        <div class="field">
+          <label for="phone">Teléfono</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <button class="btn btn--primary" type="submit">Buscar reserva</button>
+        <p class="error" id="lookup-error" role="alert" hidden></p>
+      </form>
+    </div>
+
+    <div class="card" id="result-card" hidden>
+      <h1>Tu reserva</h1>
+      <dl class="details">
+        <dt>Código</dt><dd id="r-code"></dd>
+        <dt>Nombre</dt><dd id="r-name"></dd>
+        <dt>Día</dt><dd id="r-date"></dd>
+        <dt>Hora</dt><dd id="r-time"></dd>
+        <dt>Personas</dt><dd id="r-size"></dd>
+        <dt>Estado</dt><dd><span class="badge" id="r-status"></span></dd>
+      </dl>
+      <button class="btn btn--danger" type="button" id="cancel" hidden>Cancelar reserva</button>
+      <p class="error" id="cancel-error" role="alert" hidden></p>
+    </div>
+  </main>
+</body>
+</html>
